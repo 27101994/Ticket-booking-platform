@@ -1,0 +1,41 @@
+<!-- show_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Show List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for show in shows %}
+        <tr>
+          <td>{{ show.movie.title }}</td>
+          <td>{{ show.date }}</td>
+          <td>
+            {% if show.is_disabled %}
+              <span class="badge badge-warning">Disabled</span>
+            {% else %}
+              <span class="badge badge-success">Active</span>
+            {% endif %}
+          </td>
+          <td>
+            <!-- Edit Show Link -->
+            <a href="{% url 'edit_show' show.id %}" class="btn btn-primary btn-sm">Edit</a>
+
+            <!-- Delete Show Form -->
+            <form method="post" action="{% url 'delete_show' show.id %}" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this show?')">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

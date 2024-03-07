@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <!-- Add any additional styling or meta tags here -->
+</head>
+<body>
+    <h2>Movie Ticket Booking Confirmation</h2>
+    <p>Hello {{ booking.user.username }},</p>
+    <p>Your booking has been confirmed for the following details:</p>
+    
+    <p><strong>Show:</strong> {{ booking.show }}</p>
+    <p><strong>Number of Tickets:</strong> {{ booking.no_of_tickets }}</p>
+    <p><strong>Booking ID:</strong> {{ booking.booking_id }}</p>
+    
+    <p>Thank you for choosing our service. Enjoy the show!</p>
+    
+    <!-- Add any additional information or styling as needed -->
+</body>
+</html>

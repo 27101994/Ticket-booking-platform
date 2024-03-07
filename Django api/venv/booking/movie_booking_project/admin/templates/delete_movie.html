@@ -1,0 +1,11 @@
+<!-- delete_movie.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Delete Movie</h2>
+  <p>Are you sure you want to delete {{ movie.name }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete Movie</button>
+  </form>
+{% endblock %}

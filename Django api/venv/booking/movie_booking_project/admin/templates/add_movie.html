@@ -1,0 +1,23 @@
+<!-- add_movie.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Add Movie</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.title.label_tag }}
+        {{ form.title }}
+      </div>
+
+      <div class="form-group">
+        {{ form.image.label_tag }}
+        {{ form.image }}
+      </div>
+      <!-- Add other form fields as needed -->
+
+      <button type="submit" class="btn btn-primary">Add Movie</button>
+    </form>
+  </div>
+{% endblock %}
